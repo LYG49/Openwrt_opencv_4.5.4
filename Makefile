@@ -41,19 +41,18 @@ endef
 define Package/opencv
   SECTION:=libs
   CATEGORY:=Libraries
-  TITLE:=OpenCV$(PKG_VERSION)
+  TITLE:=OpenCV-$(PKG_VERSION)
   URL:=https://opencv.org/
-  DEPENDS:=+libpthread +librt +libatomic +libstdcpp +zlib +libjpeg +libwebp +ffmpeg
-
+  DEPENDS:=+libatomic +librt +libtiff +libjpeg +libpng +libpthread +libstdcpp +libwebp +zlib +libhighgui
 endef
 
 CMAKE_OPTIONS += \
 	-DBUILD_opencv_gpu:BOOL=OFF \
-	-DWITH_1394:BOOL=OFF -DBUILD_opencv_stitching:BOOL=ON \
+	-DWITH_1394:BOOL=OFF -DBUILD_opencv_stitching:BOOL=OFF \
 	-DBUILD_opencv_superres:BOOL=OFF -DBUILD_opencv_ts:BOOL=OFF \
 	-DBUILD_opencv_highgui:BOOL=ON \
-	-DBUILD_opencv_videostab:BOOL=ON \
-	-DWITH_FFMPEG:BOOL=ON \
+	-DBUILD_opencv_videostab:BOOL=OFF \
+	-DWITH_FFMPEG:BOOL=OFF \
 	-DWITH_GSTREAMER:BOOL=OFF \
 	-DWITH_LIBV4L:BOOL=OFF \
 	-DWITH_PNG:BOOL=OFF \
